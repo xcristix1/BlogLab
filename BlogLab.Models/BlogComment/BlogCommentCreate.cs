@@ -14,5 +14,6 @@ namespace BlogLab.Models.BlogComment
         [MinLength(10, ErrorMessage = "Must be 10-300 characters")]
         [MaxLength(300, ErrorMessage = "Must be 10-300 characters")]
         public string Content { get; set; }
+        public object ParentBlogComment { get; set; }
     }
 }

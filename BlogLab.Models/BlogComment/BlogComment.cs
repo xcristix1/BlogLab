@@ -11,5 +11,9 @@ namespace BlogLab.Models.BlogComment
         public DateTime PublishDate { get; set; }
         public DateTime UpdateDate { get; set; }
 
+        public static implicit operator int(BlogComment v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

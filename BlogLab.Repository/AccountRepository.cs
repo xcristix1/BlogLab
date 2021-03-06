@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BlogLab.Repository
 {
-    public class AccountRepository : IAccountRepository
+ public  class AccountRepository : IAccountRepository
     {
         private readonly IConfiguration _config;
 
