@@ -11,9 +11,9 @@ namespace BlogLab.Repository
         public Task<BlogComment> UpsertAsync(BlogCommentCreate blogCommentCreate, int applicationUserId);
         public Task<List<BlogComment>> GetAllAsync(int blogId);
 
-        public Task<BlogComment> GeyAsync(int blogCommentId);
+        public Task<BlogComment> GetAsync(int blogCommentId);
 
         public Task<int> DeleteAsync(int blogCommentId);
-        Task GetAsync(int blogCommentId);
+
     }
 }

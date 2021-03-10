@@ -70,7 +70,10 @@ namespace BlogLab.Repository
             return blogComment;
         }
 
-
+        public Task<BlogComment> GeyAsync(int blogCommentId)
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task<BlogComment> UpsertAsync(BlogCommentCreate blogCommentCreate, int applicationUserId)
         {
@@ -107,11 +110,6 @@ namespace BlogLab.Repository
             BlogComment blogComment = await GetAsync(newBlogCommentId.Value);
 
             return blogComment;
-        }
-
-        Task IBlogCommentRepository.GetAsync(int blogCommentId)
-        {
-            throw new NotImplementedException();
         }
     }
 }

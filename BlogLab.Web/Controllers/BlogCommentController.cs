@@ -47,7 +47,8 @@ namespace BlogLab.Web.Controllers
 
             var foundBlogComment = await _blogCommentRepository.GetAsync(blogCommentId);
 
-            if (foundBlogComment == null) return BadRequest("Comment does not exists");
+            if (foundBlogComment == null)
+                return BadRequest("Comment does not exists");
 
             if (foundBlogComment.ApplicationUserId == applicationUserId)
             {
@@ -56,7 +57,6 @@ namespace BlogLab.Web.Controllers
                 return Ok(affectedRows);
             }
             else
-
             {
                 return BadRequest("This comment was not created by the current user.");
             }

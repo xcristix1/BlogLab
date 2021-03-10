@@ -38,5 +38,10 @@ namespace BlogLab.Services
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        public string CreateToken(ApplicationUserIdentity applicationUserIdentity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
