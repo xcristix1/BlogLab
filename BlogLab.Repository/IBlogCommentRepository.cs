@@ -14,5 +14,6 @@ namespace BlogLab.Repository
         public Task<BlogComment> GeyAsync(int blogCommentId);
 
         public Task<int> DeleteAsync(int blogCommentId);
+        Task GetAsync(int blogCommentId);
     }
 }

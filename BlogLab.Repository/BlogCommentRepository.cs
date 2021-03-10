@@ -70,10 +70,7 @@ namespace BlogLab.Repository
             return blogComment;
         }
 
-        public Task<BlogComment> GeyAsync(int blogCommentId)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public async Task<BlogComment> UpsertAsync(BlogCommentCreate blogCommentCreate, int applicationUserId)
         {
@@ -98,7 +95,11 @@ namespace BlogLab.Repository
 
                 newBlogCommentId = await connection.ExecuteScalarAsync<int?>(
                     "BlogComment_Upsert",
-                    new { BlogComment = dataTable.AsTableValuedParameter("dbo.BlogCommentType") },
+                    new
+                    {
+                        BlogComment = dataTable.AsTableValuedParameter("dbo.BlogCommentType"),
+                        ApplicationUserId = applicationUserId
+                    },
                     commandType: CommandType.StoredProcedure);
             }
             newBlogCommentId = newBlogCommentId ?? blogCommentCreate.BlogCommentId;
@@ -108,6 +109,10 @@ namespace BlogLab.Repository
             return blogComment;
         }
 
-
+        Task IBlogCommentRepository.GetAsync(int blogCommentId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
+

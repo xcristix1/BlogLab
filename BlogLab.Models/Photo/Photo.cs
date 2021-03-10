@@ -10,5 +10,6 @@ namespace BlogLab.Models.Photo
         public int ApplicationUserId { get; set; }
         public DateTime PublishDate { get; set; }
         public DateTime UppdateDate { get; set; }
+        public string PublicId { get; set; }
     }
 }

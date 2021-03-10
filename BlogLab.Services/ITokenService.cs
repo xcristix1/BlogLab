@@ -9,5 +9,6 @@ namespace BlogLab.Services
 
     {
         public string CreateToke(ApplicationUserIdentity user);
+        string CreateToken(ApplicationUserIdentity applicationUserIdentity);
     }
 }
