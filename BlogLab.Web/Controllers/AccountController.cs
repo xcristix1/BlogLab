@@ -1,16 +1,15 @@
-﻿using BlogLab.Models.Account;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BlogLab.Models.Account;
 using BlogLab.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BlogLab.Web.Controllers
 {
-
     [Route("api/[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
@@ -20,7 +19,7 @@ namespace BlogLab.Web.Controllers
         private readonly SignInManager<ApplicationUserIdentity> _signInManager;
 
         public AccountController(
-            ITokenService tokenService,
+            ITokenService tokenService, 
             UserManager<ApplicationUserIdentity> userManager,
             SignInManager<ApplicationUserIdentity> signInManager)
         {
@@ -28,7 +27,7 @@ namespace BlogLab.Web.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        // http://localhost:5000/api/Account/register 
+
         [HttpPost("register")]
         public async Task<ActionResult<ApplicationUser>> Register(ApplicationUserCreate applicationUserCreate)
         {
@@ -38,10 +37,13 @@ namespace BlogLab.Web.Controllers
                 Email = applicationUserCreate.Email,
                 Fullname = applicationUserCreate.Fullname
             };
+
             var result = await _userManager.CreateAsync(applicationUserIdentity, applicationUserCreate.Password);
 
             if (result.Succeeded)
             {
+                applicationUserIdentity = await _userManager.FindByNameAsync(applicationUserCreate.Username);
+
                 ApplicationUser applicationUser = new ApplicationUser()
                 {
                     ApplicationUserId = applicationUserIdentity.ApplicationUserId,
@@ -52,11 +54,9 @@ namespace BlogLab.Web.Controllers
                 };
 
                 return Ok(applicationUser);
-
             }
 
             return BadRequest(result.Errors);
-
         }
 
         [HttpPost("login")]
@@ -83,10 +83,9 @@ namespace BlogLab.Web.Controllers
 
                     return Ok(applicationUser);
                 }
-
             }
-            return BadRequest("Invalid login attempt.");
-        } 
 
+            return BadRequest("Invalid login attempt.");
+        }
     }
 }

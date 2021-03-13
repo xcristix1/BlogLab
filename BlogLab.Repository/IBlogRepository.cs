@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlogLab.Repository
 {
- public   interface IBlogRepository
+    public interface IBlogRepository
     {
         public Task<Blog> UpsertAsync(BlogCreate blogCreate, int applicationUserId);
 
@@ -18,7 +18,6 @@ namespace BlogLab.Repository
 
         public Task<List<Blog>> GetAllFamousAsync();
 
-        public Task<int> Deleteasync(int blogId);
-        Task GetAllByUserIdAsync();
+        public Task<int> DeleteAsync(int blogId);
     }
 }

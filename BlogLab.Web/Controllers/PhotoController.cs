@@ -1,13 +1,14 @@
-﻿using BlogLab.Models.Photo;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BlogLab.Models.Photo;
 using BlogLab.Repository;
 using BlogLab.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.JsonWebTokens;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BlogLab.Web.Controllers
 {
@@ -18,19 +19,19 @@ namespace BlogLab.Web.Controllers
         private readonly IPhotoRepository _photoRepository;
         private readonly IBlogRepository _blogRepository;
         private readonly IPhotoService _photoService;
-        
+
         public PhotoController(
             IPhotoRepository photoRepository,
             IBlogRepository blogRepository,
-            IPhotoService photoService) 
+            IPhotoService photoService)
         {
             _photoRepository = photoRepository;
             _blogRepository = blogRepository;
             _photoService = photoService;
         }
+
         [Authorize]
         [HttpPost]
-
         public async Task<ActionResult<Photo>> UploadPhoto(IFormFile file)
         {
             int applicationUserId = int.Parse(User.Claims.First(i => i.Type == JwtRegisteredClaimNames.NameId).Value);
@@ -39,7 +40,7 @@ namespace BlogLab.Web.Controllers
 
             if (uploadResult.Error != null) return BadRequest(uploadResult.Error.Message);
 
-            var photoCreate = new PhotoCreate()
+            var photoCreate = new PhotoCreate
             {
                 PublicId = uploadResult.PublicId,
                 ImageUrl = uploadResult.SecureUrl.AbsoluteUri,
@@ -50,6 +51,7 @@ namespace BlogLab.Web.Controllers
 
             return Ok(photo);
         }
+
         [Authorize]
         [HttpGet]
         public async Task<ActionResult<List<Photo>>> GetByApplicationUserId()
@@ -60,6 +62,7 @@ namespace BlogLab.Web.Controllers
 
             return Ok(photos);
         }
+
         [HttpGet("{photoId}")]
         public async Task<ActionResult<Photo>> Get(int photoId)
         {
@@ -67,6 +70,7 @@ namespace BlogLab.Web.Controllers
 
             return Ok(photo);
         }
+
         [Authorize]
         [HttpDelete("{photoId}")]
         public async Task<ActionResult<int>> Delete(int photoId)
@@ -89,20 +93,17 @@ namespace BlogLab.Web.Controllers
 
                     if (deleteResult.Error != null) return BadRequest(deleteResult.Error.Message);
 
-                    var affectRows = await _photoRepository.DeleteAsync(foundPhoto.PhotoId);
+                    var affectedRows = await _photoRepository.DeletetAsync(foundPhoto.PhotoId);
 
-                    return Ok(affectRows);
-
+                    return Ok(affectedRows);
+                } 
+                else
+                {
+                    return BadRequest("Photo was not uploaded by the current user.");
                 }
-
-            }
-            else
-            {
-                return BadRequest("Photo was not uploaded by the current user.");
             }
 
             return BadRequest("Photo does not exist.");
         }
-
     }
 }

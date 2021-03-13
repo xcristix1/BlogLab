@@ -1,13 +1,13 @@
-﻿using BlogLab.Models.Blog;
+﻿using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Threading.Tasks;
+using BlogLab.Models.Blog;
 using BlogLab.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.JsonWebTokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BlogLab.Web.Controllers
 {
@@ -23,25 +23,28 @@ namespace BlogLab.Web.Controllers
             _blogRepository = blogRepository;
             _photoRepository = photoRepository;
         }
+
         [Authorize]
         [HttpPost]
         public async Task<ActionResult<Blog>> Create(BlogCreate blogCreate)
         {
             int applicationUserId = int.Parse(User.Claims.First(i => i.Type == JwtRegisteredClaimNames.NameId).Value);
-            
+
             if (blogCreate.PhotoId.HasValue)
             {
                 var photo = await _photoRepository.GetAsync(blogCreate.PhotoId.Value);
 
                 if (photo.ApplicationUserId != applicationUserId)
                 {
-                    return BadRequest("You did not upload the photo");
+                    return BadRequest("You did not upload the photo.");
                 }
             }
+
             var blog = await _blogRepository.UpsertAsync(blogCreate, applicationUserId);
 
             return Ok(blog);
         }
+
         [HttpGet]
         public async Task<ActionResult<PagedResults<Blog>>> GetAll([FromQuery] BlogPaging blogPaging)
         {
@@ -49,6 +52,7 @@ namespace BlogLab.Web.Controllers
 
             return Ok(blogs);
         }
+
         [HttpGet("{blogId}")]
         public async Task<ActionResult<Blog>> Get(int blogId)
         {
@@ -56,7 +60,8 @@ namespace BlogLab.Web.Controllers
 
             return Ok(blog);
         }
-        [HttpGet("user/{applicationUserId")]
+
+        [HttpGet("user/{applicationUserId}")]
         public async Task<ActionResult<List<Blog>>> GetByApplicationUserId(int applicationUserId)
         {
             var blogs = await _blogRepository.GetAllByUserIdAsync(applicationUserId);
@@ -71,6 +76,7 @@ namespace BlogLab.Web.Controllers
 
             return Ok(blogs);
         }
+
         [Authorize]
         [HttpDelete("{blogId}")]
         public async Task<ActionResult<int>> Delete(int blogId)
@@ -79,20 +85,19 @@ namespace BlogLab.Web.Controllers
 
             var foundBlog = await _blogRepository.GetAsync(blogId);
 
-            if (foundBlog == null) return BadRequest("Blog does not exist");
+            if (foundBlog == null) return BadRequest("Blog does not exist.");
 
             if (foundBlog.ApplicationUserId == applicationUserId)
             {
-                var result = await _blogRepository.Deleteasync(blogId);
+                var affectedRows = await _blogRepository.DeleteAsync(blogId);
 
-                return Ok(result);
+                return Ok(affectedRows);
             }
-
             else
             {
                 return BadRequest("You didn't create this blog.");
             }
-
         }
+
     }
 }

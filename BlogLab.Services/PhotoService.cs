@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,6 +25,7 @@ namespace BlogLab.Services
         public async Task<ImageUploadResult> AddPhotoAsync(IFormFile file)
         {
             var uploadResult = new ImageUploadResult();
+
             if (file.Length > 0)
             {
                 using (var stream = file.OpenReadStream())
@@ -46,9 +48,8 @@ namespace BlogLab.Services
             var deletionParams = new DeletionParams(publicId);
 
             var result = await _cloudinary.DestroyAsync(deletionParams);
-            
-            return result;
 
+            return result;
         }
     }
 }

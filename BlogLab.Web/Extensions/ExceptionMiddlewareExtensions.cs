@@ -21,7 +21,7 @@ namespace BlogLab.Web.Extensions
                     context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     context.Response.ContentType = "application/json";
                     var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
-                    if (contextFeature != null)
+                    if (contextFeature !=  null)
                     {
                         // In production version you would log exceptions into your database
 
@@ -30,7 +30,6 @@ namespace BlogLab.Web.Extensions
                             StatusCode = context.Response.StatusCode,
                             Message = "Internal Server Error"
                         }.ToString());
-
                     }
                 });
             });

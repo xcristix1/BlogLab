@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BlogLab.Repository
 {
- public  class AccountRepository : IAccountRepository
+    public class AccountRepository : IAccountRepository
     {
         private readonly IConfiguration _config;
 
@@ -24,6 +24,7 @@ namespace BlogLab.Repository
         public async Task<IdentityResult> CreateAsync(ApplicationUserIdentity user, CancellationToken cancellationToken)
         {
             cancellationToken.ThrowIfCancellationRequested();
+
             var dataTable = new DataTable();
             dataTable.Columns.Add("Username", typeof(string));
             dataTable.Columns.Add("NormalizedUsername", typeof(string));
@@ -33,19 +34,22 @@ namespace BlogLab.Repository
             dataTable.Columns.Add("PasswordHash", typeof(string));
 
             dataTable.Rows.Add(
-               user.Username,
-               user.NormalizedUsername,
-               user.Email,
-               user.NormalizedEmail,
-               user.Fullname,
-               user.PasswordHash
-               );
+                user.Username,
+                user.NormalizedUsername,
+                user.Email,
+                user.NormalizedEmail,
+                user.Fullname,
+                user.PasswordHash
+                );
+
             using (var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
             {
                 await connection.OpenAsync(cancellationToken);
+
                 await connection.ExecuteAsync("Account_Insert",
                     new { Account = dataTable.AsTableValuedParameter("dbo.AccountType") }, commandType: CommandType.StoredProcedure);
             }
+
             return IdentityResult.Success;
         }
 

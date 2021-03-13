@@ -5,10 +5,8 @@ using System.Text;
 
 namespace BlogLab.Services
 {
- public   interface ITokenService
-
+    public interface ITokenService
     {
-        public string CreateToke(ApplicationUserIdentity user);
-        string CreateToken(ApplicationUserIdentity applicationUserIdentity);
+        public string CreateToken(ApplicationUserIdentity user);
     }
 }
