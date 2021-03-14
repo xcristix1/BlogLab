@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BLogLab.Web\\BlogLab.Web.csproj": {}
+    "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Web\\BlogLab.Web.csproj": {}
   },
   "projects": {
     "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Identity\\BlogLab.Identity.csproj": {
@@ -287,14 +287,14 @@
         }
       }
     },
-    "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BLogLab.Web\\BlogLab.Web.csproj": {
+    "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Web\\BlogLab.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BLogLab.Web\\BlogLab.Web.csproj",
+        "projectUniqueName": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Web\\BlogLab.Web.csproj",
         "projectName": "BlogLab.Web",
-        "projectPath": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BLogLab.Web\\BlogLab.Web.csproj",
+        "projectPath": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Web\\BlogLab.Web.csproj",
         "packagesPath": "C:\\Users\\endlessmunited\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BLogLab.Web\\obj\\",
+        "outputPath": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\endlessmunited\\AppData\\Roaming\\NuGet\\NuGet.Config",
