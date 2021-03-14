@@ -1501,11 +1501,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\endlessmunited\\Desktop\\Build-A-Blog-Using-AspNet-Core-Angular-And-SQL-Server-master\\DotNet 3.1\\BlogLab.Web\\BlogLab.Web.csproj",
+      "projectUniqueName": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Web\\BlogLab.Web.csproj",
       "projectName": "BlogLab.Web",
-      "projectPath": "C:\\Users\\endlessmunited\\Desktop\\Build-A-Blog-Using-AspNet-Core-Angular-And-SQL-Server-master\\DotNet 3.1\\BlogLab.Web\\BlogLab.Web.csproj",
+      "projectPath": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Web\\BlogLab.Web.csproj",
       "packagesPath": "C:\\Users\\endlessmunited\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\endlessmunited\\Desktop\\Build-A-Blog-Using-AspNet-Core-Angular-And-SQL-Server-master\\DotNet 3.1\\BlogLab.Web\\obj\\",
+      "outputPath": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\endlessmunited\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1522,17 +1522,17 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\endlessmunited\\Desktop\\Build-A-Blog-Using-AspNet-Core-Angular-And-SQL-Server-master\\DotNet 3.1\\BlogLab.Identity\\BlogLab.Identity.csproj": {
-              "projectPath": "C:\\Users\\endlessmunited\\Desktop\\Build-A-Blog-Using-AspNet-Core-Angular-And-SQL-Server-master\\DotNet 3.1\\BlogLab.Identity\\BlogLab.Identity.csproj"
+            "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Identity\\BlogLab.Identity.csproj": {
+              "projectPath": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Identity\\BlogLab.Identity.csproj"
             },
-            "C:\\Users\\endlessmunited\\Desktop\\Build-A-Blog-Using-AspNet-Core-Angular-And-SQL-Server-master\\DotNet 3.1\\BlogLab.Models\\BlogLab.Models.csproj": {
-              "projectPath": "C:\\Users\\endlessmunited\\Desktop\\Build-A-Blog-Using-AspNet-Core-Angular-And-SQL-Server-master\\DotNet 3.1\\BlogLab.Models\\BlogLab.Models.csproj"
+            "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Models\\BlogLab.Models.csproj": {
+              "projectPath": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Models\\BlogLab.Models.csproj"
             },
-            "C:\\Users\\endlessmunited\\Desktop\\Build-A-Blog-Using-AspNet-Core-Angular-And-SQL-Server-master\\DotNet 3.1\\BlogLab.Repository\\BlogLab.Repository.csproj": {
-              "projectPath": "C:\\Users\\endlessmunited\\Desktop\\Build-A-Blog-Using-AspNet-Core-Angular-And-SQL-Server-master\\DotNet 3.1\\BlogLab.Repository\\BlogLab.Repository.csproj"
+            "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Repository\\BlogLab.Repository.csproj": {
+              "projectPath": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Repository\\BlogLab.Repository.csproj"
             },
-            "C:\\Users\\endlessmunited\\Desktop\\Build-A-Blog-Using-AspNet-Core-Angular-And-SQL-Server-master\\DotNet 3.1\\BlogLab.Services\\BlogLab.Services.csproj": {
-              "projectPath": "C:\\Users\\endlessmunited\\Desktop\\Build-A-Blog-Using-AspNet-Core-Angular-And-SQL-Server-master\\DotNet 3.1\\BlogLab.Services\\BlogLab.Services.csproj"
+            "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Services\\BlogLab.Services.csproj": {
+              "projectPath": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Services\\BlogLab.Services.csproj"
             }
           }
         }

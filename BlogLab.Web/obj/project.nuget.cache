@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XVyJIml1sYlmWEdqXPmZT/7Xpc3G4pw8tBRJl/G2RazuGLGAlvViixLriC+dEUDGv7Z1L5bGMOuQXWrN/7gMbQ==",
+  "dgSpecHash": "EsQQTIlzQ3pmhslKAoK2ryXG8FYMR1TawNsi3/GGuQ76NFykRntgRlHC8d7XU6TAcUTVUzgmxVq5kbBt+tHx8A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\endlessmunited\\Desktop\\Build-A-Blog-Using-AspNet-Core-Angular-And-SQL-Server-master\\DotNet 3.1\\BlogLab.Web\\BlogLab.Web.csproj",
+  "projectFilePath": "C:\\Users\\endlessmunited\\Desktop\\BlogLab\\BlogLab.Web\\BlogLab.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\endlessmunited\\.nuget\\packages\\cloudinarydotnet\\1.11.0\\cloudinarydotnet.1.11.0.nupkg.sha512",
     "C:\\Users\\endlessmunited\\.nuget\\packages\\dapper\\2.0.35\\dapper.2.0.35.nupkg.sha512",
