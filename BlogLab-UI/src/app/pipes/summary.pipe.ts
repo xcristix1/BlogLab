@@ -6,9 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SummaryPipe implements PipeTransform {
 
   transform(content: string, characterLimit: number): string {
-    if (content.length <= characterLimit) {
+    if (content.length <= characterLimit){
       return content;
-    } else {
+    } else{
       return `${content.substring(0, characterLimit)}...`;
     }
   }
